@@ -7,4 +7,8 @@ class Product < ActiveRecord::Base
 		message: 'must be a URL for GIF, PNG or JPG image'
 	}
 	validates :description , length: {minimum: 10,  message: " shouldn't be less than 10 characters"}
+
+	def self.latest
+		Product.order(:updated_at).last
+	end
 end
