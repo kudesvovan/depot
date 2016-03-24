@@ -9,7 +9,7 @@ class ProductTest < ActiveSupport::TestCase
   
   def new_product(image_url)
   	Product.new(title: "My Book Title",
-  							description: "yyy",
+  							description: "yyyyyyyyyy",
   							price: 1,
   							image_url: image_url)
   end
@@ -25,7 +25,7 @@ class ProductTest < ActiveSupport::TestCase
 
   test "product price must be positive" do
   	product = Product.new(title: "My Book Title",
-  												description: "yyy",
+  												description: "yyyyyyyyyy",
   												image_url: "zzz.jpg")
 
   	product.price = -1
@@ -55,12 +55,26 @@ class ProductTest < ActiveSupport::TestCase
 
   test "product is not valid without a unique title" do
   	product = Product.new(title: products(:ruby).title,
-  												description: "yyy",
+  												description: "yyyyyyyyyy",
   												price: 1,
   												image_url: "fred.gif")
 
   	assert product.invalid?
   	assert_equal ["has already been taken"], product.errors[:title]
   	#assert_equal [I18n.translate('activerecord.errors.messages.taken')], product.errors[:title] альтернатива
+  end
+
+  test "product description length must be greater than 10" do
+  	#product = new_product("fred.img")
+  	product = Product.new(title: "My Book Title",
+  												description: "yyyyyyyyyy",
+  												price: 1,
+  												image_url: "fred.gif")
+  	assert product.valid?
+
+  	product.description = "zzz"
+  	assert product.invalid?
+  	assert_equal [" shouldn't be less than 10 characters"], product.errors[:description]
+
   end
 end
