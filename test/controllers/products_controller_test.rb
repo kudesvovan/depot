@@ -16,7 +16,7 @@ class ProductsControllerTest < ActionController::TestCase
     assert_response :success
     assert_not_nil assigns(:products)
 
-    assert_select '#side ul li span', /^\d{1,2}\s[A-Za-z]{3}\s\d\d\S\d\d/
+    assert_select '#side ul li span', /^\d{1,2}\s[A-Za-z]{3}\s\d\d\S\d\d/ #время
 
     assert_select 'h1', 'Listing products'
     assert_select '.products img', minimum:3
