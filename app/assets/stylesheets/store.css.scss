@@ -10,6 +10,10 @@
 		color: #226;
 		border-bottom: 3px dotted #77d;
 	}
+	h1 span.page_visit_counter {
+			font-size: 0.5em;
+		}
+	
 
 	.entry {
 		overflow: auto;
@@ -39,7 +43,7 @@
 		form, div {
 			display: inline;
 		}
-		
+
 		.price {
 			color: #44a;
 			font-weight: bold;
