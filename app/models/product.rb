@@ -1,5 +1,5 @@
 class Product < ActiveRecord::Base
-	has_many :line_items, dependent: :destroy
+	has_many :line_items
 	before_destroy :ensure_not_referenced_by_any_line_item
 
 	validates :title, :description, :image_url, presence: true
@@ -21,7 +21,7 @@ class Product < ActiveRecord::Base
 		if line_items.empty?
 			return true
 		else
-			errors.add(:base, 'product line items are existing')
+			errors	.add(:base, 'product line items are existing')
 			return false
 		end
 	end

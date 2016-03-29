@@ -48,6 +48,17 @@ class ProductsControllerTest < ActionController::TestCase
   test "should update product" do
     patch :update, id: @product, product: @update
     assert_redirected_to product_path(assigns(:product))
+  end  
+
+  test "can't delete product in cart" do
+    @cart = Cart.create
+    @product = products(:ruby)
+    @cart.add_product(@product.id).save!
+    assert_difference('Product.count', 0) do
+      delete :destroy, id: @product
+    end
+
+    assert_redirected_to products_path
   end
 
   test "should destroy product" do
