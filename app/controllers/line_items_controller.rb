@@ -60,24 +60,21 @@ class LineItemsController < ApplicationController
   # DELETE /line_items/1
   # DELETE /line_items/1.json
   def destroy
-    
-    #@line_item.destroy if @line_item.quantity == 1
-    #@quantity = @line_item.quantity - 1
-    #@line_item.quantity = @quantity
-    #@line_item.save
-    #@line_item.decrease# if @line_item.quantity != 1
-    
-    decrease_line_item(@line_item)
-    
+    decrease_line_item(@line_item)    
+    @cart = @line_item.cart
     respond_to do |format|
-      format.html { redirect_to @line_item.cart }
+      if @cart.line_items.empty?
+        format.html { redirect_to store_url, notice: 'Your cart is empty now.' }
+      else
+        format.html { redirect_to @line_item.cart }
+      end
       format.json { head :no_content }
     end
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_line_item
+    def set_line_item  
       @line_item = LineItem.find(params[:id])
     end
 
