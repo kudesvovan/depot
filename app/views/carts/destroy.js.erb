@@ -1,0 +1,3 @@
+if ($('#cart').length == 1) {$('#cart').hide('blind', 800);} //если корзина есть
+
+$('#cart tr').not('.total_line').remove() // оставляем строку т.к. нужна одна строка для blind-эффекта в create.js.erb

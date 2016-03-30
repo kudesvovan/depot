@@ -21,7 +21,7 @@ class CartsControllerTest < ActionController::TestCase
       post :create, cart: {  }
     end
 
-    assert_redirected_to cart_path(assigns(:cart))
+    assert_redirected_to store_url
   end
 
   test "should show cart" do
