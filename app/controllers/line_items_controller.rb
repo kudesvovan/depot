@@ -69,6 +69,7 @@ class LineItemsController < ApplicationController
       else
         format.html { redirect_to store_url, notice: "You have removed one item." }
       end
+      format.js { @current_item = @line_item}
       format.json { head :no_content }
     end
   end
