@@ -1,8 +1,8 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: Dave THomas
-  address: MyText
-  email: dave@myexample.com
-  payment_type_id: 1
+  id: 1
+  name: Check
 
+two:
+  name: MyString
