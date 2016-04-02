@@ -25,6 +25,8 @@ class OrdersControllerTest < ActionController::TestCase
     session[:cart_id] = item.cart_id
     get :new
     assert_response :success
+
+    assert_select "input[type=submit value='Checkout']" , false
   end
 
   test "should create order" do
