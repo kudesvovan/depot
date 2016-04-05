@@ -17,7 +17,12 @@
 
 <p>
   <strong>Pay type:</strong>
-  <%= @order.pay_type %>
+  <%= @order.payment_type.name %>
+</p>
+
+<p>
+  <strong>Ship date:</strong>
+  <%= @order.ship_date %>
 </p>
 
 <%= link_to 'Edit', edit_order_path(@order) %> |

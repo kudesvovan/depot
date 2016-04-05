@@ -51,8 +51,11 @@ class OrdersController < ApplicationController
   # PATCH/PUT /orders/1
   # PATCH/PUT /orders/1.json
   def update
+    @ship_date_before = @order.ship_date
     respond_to do |format|
       if @order.update(order_params)
+        @ship_date_after = @order.ship_date
+        OrderNotifier.shipped(@order).deliver unless @ship_date_before == @ship_date_after
         format.html { redirect_to @order, notice: 'Order was successfully updated.' }
         format.json { head :no_content }
       else
@@ -80,6 +83,6 @@ class OrdersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def order_params
-      params.require(:order).permit(:name, :address, :email, :payment_type_id)
+      params.require(:order).permit(:name, :address, :email, :payment_type_id, :ship_date)
     end
 end
