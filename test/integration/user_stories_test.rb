@@ -60,6 +60,17 @@ class UserStoriesTest < ActionDispatch::IntegrationTest
   	mail = ActionMailer::Base.deliveries.last
   	assert_equal ["dave@example.com"], mail.to
   	assert_equal "Vladimir Vasilyev <depot@example.com>", mail[:from].value
-  	assert_equal "Подтверждение заказа в Pragmatic Store", mail.subject
-	end
+  	assert_equal "Подтверждение заказа в Pragmatic Store", mail.subject	
+  end
+
+  test "shoul mail the admin when error occurs" do
+  	get "/carts/wibble"
+  	assert_response :redirect 
+  	assert_template "/"
+
+  	mail = ActionMailer::Base.deliveries.last
+  	assert_equal ["vladi_it@mail.ru"], mail.to  ## replace mail id
+    assert_equal "Vladimir Vasilyev <depot@example.com>", mail[:from].value  
+    assert_equal "Исключение в работе приложения Depot", mail.subject
+  end
 end
