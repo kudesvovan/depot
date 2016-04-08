@@ -88,6 +88,12 @@
 	}
 }
 .depot_form {
+	.field, .actions {
+		margin-bottom: 1.5em;
+		input[type="submit"] {
+			margin-left: 5em;
+		}
+	}
 	fieldset {
 		background: #efe;
 		legend {
@@ -108,9 +114,6 @@
 		}
 		select, textarea, input {
 			margin-left: 0.5em;
-		}
-		.submit {
-			margin-left: 4em;
 		}
 		br {
 			display: none;

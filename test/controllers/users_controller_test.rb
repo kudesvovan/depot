@@ -34,8 +34,13 @@ class UsersControllerTest < ActionController::TestCase
     assert_response :success
   end
 
+  test "shouldn't update user without current password" do
+    patch :update, id: @user, user: { name: @user.name, current_password: 'no secret', password: 'new_secret', password_confirmation: 'new_secret' }
+    assert_select '#error_explanation ul li', /Current password  is not correct/
+  end
+
   test "should update user" do
-    patch :update, id: @user, user: { name: @user.name, password: 'secret', password_confirmation: 'secret' }
+    patch :update, id: @user, user: { name: @user.name, current_password: 'secret', password: 'new_secret', password_confirmation: 'new_secret' }
     assert_redirected_to users_path
   end
 
