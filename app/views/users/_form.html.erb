@@ -19,11 +19,17 @@
       <%= f.label :name %><br>
       <%= f.text_field :name, size: 40 %>
     </div>
+    <% if action_name == "edit" || action_name == "update" %>
+      <div class="field">
+        <%= f.label :current_password %>
+        <%= f.password_field :current_password, size: 40 %><br>
+      </div>
+    <% end %>
     <div class="field">
       <%= f.label :password %><br>
       <%= f.password_field :password, size: 40 %>
     </div>
-    <div>
+    <div class="field">
       <%= f.label :password_confirmation %><br>
       <%= f.password_field :password_confirmation, size: 40 %>
     </div>
