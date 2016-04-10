@@ -59,4 +59,22 @@ class LineItemsControllerTest < ActionController::TestCase
       
     assert_redirected_to store_url
   end
+
+  test "should destroy line item via ajax" do 
+    @cart = carts(:one)
+    @product1 = products(:ruby)
+    @product2 = products(:ruby2)
+    @cart.add_product(@product1.id).save!
+    @cart.add_product(@product2.id).save!
+    assert_difference('LineItem.count', -1) do
+      xhr :delete, :destroy, id: @cart.line_items[0]
+    end
+
+    #по книге стр.221 удаление без авторизации невозможно(рушит AJAX удаление)
+    #поэтому разрешили удаление без авторизации line_items_controller.rb:6
+    logout
+    assert_difference('LineItem.count', -1) do
+      xhr :delete, :destroy, id: @cart.line_items[1]
+    end
+  end
 end

@@ -62,7 +62,6 @@ class UserStoriesTest < ActionDispatch::IntegrationTest
   	assert_equal "Vladimir Vasilyev <depot@example.com>", mail[:from].value
   	assert_equal "Подтверждение заказа в Pragmatic Store", mail.subject	
   end
-end
 
 =begin
 так как только авторизованный user может просматривать корзину, смысла в след тесте нет. См. application_controller before_action, carts_controllrer skip_before_action 	
@@ -77,5 +76,5 @@ end
     assert_equal "Vladimir Vasilyev <depot@example.com>", mail[:from].value  
     assert_equal "Исключение в работе приложения Depot", mail.subject
   end
-end
 =end
+end
