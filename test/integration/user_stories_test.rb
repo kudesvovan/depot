@@ -63,6 +63,14 @@ class UserStoriesTest < ActionDispatch::IntegrationTest
   	assert_equal "Подтверждение заказа в Pragmatic Store", mail.subject	
   end
 
+  test "shouldn't get orders index logging out" do
+  	get "/"
+  	assert_response :success
+
+  	get orders_url
+  	assert_redirected_to login_url, notice: "Зарегистрируйтесь, пожалуйста"
+  end
+
 =begin
 так как только авторизованный user может просматривать корзину, смысла в след тесте нет. См. application_controller before_action, carts_controllrer skip_before_action 	
   test "shoul mail the admin when error occurs" do

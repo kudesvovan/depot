@@ -11,6 +11,12 @@ class UsersControllerTest < ActionController::TestCase
       assert_not_nil assigns(:users)
     end
 
+    test "shouldn't get index logging oit" do
+      logout
+      get :index
+      assert_redirected_to login_url, notice: "Зарегистрируйтесь, пожалуйста"
+    end
+
     test "should get new" do
       get :new
       assert_response :success
