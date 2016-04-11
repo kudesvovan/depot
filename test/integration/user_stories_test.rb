@@ -68,7 +68,7 @@ class UserStoriesTest < ActionDispatch::IntegrationTest
   	assert_response :success
 
   	get orders_url
-  	assert_redirected_to login_url, notice: "Зарегистрируйтесь, пожалуйста"
+  	assert_redirected_to login_path, notice: "Зарегистрируйтесь, пожалуйста"
   end
 
 =begin

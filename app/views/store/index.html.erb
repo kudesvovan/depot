@@ -3,9 +3,9 @@
 <% end %>
 
 <div class="topic">
-	<h1>Your Pragmatic Catalog
+	<h1><%= t('.title_html') %>
 		<% if @session_counter > 5 %> 
-		| <span class="page_visit_counter">Now you have visited the page <%= pluralize(@session_counter, "time") %>.</span>
+		| <span class="page_visit_counter"><%= t('.page_visit_counter', count: @session_counter) %>.</span>
 		<% end %>
 	</h1>
 </div>
@@ -18,7 +18,7 @@
 			<%= sanitize(product.description) %>
 			<div class="price_line">
 				<span class="price"><%= number_to_currency product.price %></span>
-				<%= button_to 'Add to Cart', line_items_path(product_id: product), remote: true %>
+				<%= button_to t('.add_html'), line_items_path(product_id: product), remote: true %>
 			</div>
 		</div>
 		<% end %>

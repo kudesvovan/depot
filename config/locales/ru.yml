@@ -1,0 +1,73 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+ru:
+  layouts:
+    application:
+      title:  "Прагматичная полка"
+      home:  "Домой"
+      questions:  "Вопросы"
+      news:  "Новости"
+      contact:  "Контакты"
+      admin: "Админ"
+
+  store:
+    index:
+      title_html: "Ваш прагматичный каталог"
+      add_html: "В корзину"
+      page_visit_counter: 
+        one: "Вы посетили страницу 1 раз"
+        other: "Вы посетили страницу %{count} раз"
+
+  carts:
+    cart:
+      title: "Ваша корзина"
+      empty: "Удалить корзину"
+      checkout: "Заказать"
+
+  sessions:
+    new:
+      login_please: "Войдите пожалуйста"
+      name: "Имя"
+      password: "Пароль"
+
+  number:
+    currency:
+      format:
+        unit: "$"
+        precision: 2
+        separator: "."
+        delimeter: ","
+        format: "%u%n"
+
+  orders:
+    new:
+      legend: "Пожалуйста, введите Ваши контакты"
+    form:
+      name: "ФИО"
+      address_html: "Адрес"
+      email: "Эл.почта"
+      pay_type: "Способ оплаты"
+      pay_prompt_html: "Выберите способ оплаты"
+      submit: "Оформить покупку"
+
+  thanks: "Спасибо за Ваш заказ."
+  cart_empty: "Ваша корзина пуста."
