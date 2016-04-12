@@ -15,7 +15,9 @@
 			<%= submit_tag 'submit' %>
 			<%= javascript_tag "$('.locale input').hide()" %>
 		<% end %>
-		<% unless controller_name == 'sessions'  %>
+		<% if session[:user_id]  %>
+				<%= button_to 'Logout', logout_path, method: :delete, class: 'admin_button' %>
+		<% else %>
 			<%= button_to t('.admin'), login_url, method: :get, class: 'admin_button' %>
 		<% end %>
 		<%= image_tag("logo.png") %>
@@ -43,7 +45,6 @@
 					<li><%= link_to 'Products', products_path %></li>
 					<li><%= link_to 'Users', users_path %></li>
 				</ul>
-				<%= button_to 'Logout', logout_path, method: :delete %>
 			<% end %>
 		</div>
 		<div id="main">
