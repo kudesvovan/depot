@@ -77,4 +77,27 @@ Depot::Application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
+
+  config.assets.debug = true
+
+  config.action_mailer.default_url_options = { host: 'depotkudesvoan.herokuapp.com' }
+
+  config.action_mailer.delivery_method = :smtp
+
+  config.action_mailer.perform_deliveries = true
+
+  config.action_mailer.raise_delivery_errors = false
+
+  config.action_mailer.default :charset => "utf-8"
+
+  ActionMailer::Base.smtp_settings = {
+  :address            => 'smtp.gmail.com',
+  :port               => '587',
+  :domain             => 'heroku.com', 
+  :authentication     => :plain,
+  :user_name          => "vladi1rails@gmail.com",
+  :password           => "oehreyyt",
+  :enable_starttls_auto => true
+}
+
 end
