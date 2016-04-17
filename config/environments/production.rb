@@ -91,12 +91,12 @@ Depot::Application.configure do
   config.action_mailer.default :charset => "utf-8"
 
   ActionMailer::Base.smtp_settings = {
-  :address            => 'smtp.gmail.com',
+  :address            => 'smtp.sendgrid.net',
   :port               => '587',
-  :domain             => 'gmail.com', 
+  :domain             => 'heroku.com', 
   :authentication     => :plain,
-  :user_name          => ENV["GMAIL_USERNAME"],
-  :password           => ENV["GMAIL_PASSWORD"],
+  :user_name          => ENV["SENDGRID_USERNAME"],
+  :password           => ENV["SENDGRID_PASSWORD"],
   :enable_starttls_auto => true
 }
 
