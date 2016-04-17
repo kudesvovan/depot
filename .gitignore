@@ -15,9 +15,8 @@
 /log/*.log
 /tmp
 
-config/locales/database.yml
-/config/application.yml
-config/invironments/development.rb
+/config/locales/database.yml
+/config/invironments/development.rb
 doc/
 *swp
 *~
@@ -25,8 +24,5 @@ doc/
 .DS_Store
 .idea
 .secret
-
-public/uploads
-tmp
-
-
+# Ignore application configuration
+/config/application.yml

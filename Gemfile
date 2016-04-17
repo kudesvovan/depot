@@ -46,6 +46,8 @@ group :production do
 	gem 'rails_12factor', '0.0.2'
 end
 
+gem 'figaro'
+
 # Use unicorn as the app server
 # gem 'unicorn'
 
