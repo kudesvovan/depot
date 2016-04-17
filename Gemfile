@@ -48,6 +48,8 @@ end
 
 gem 'figaro'
 
+ruby '2.0.0'
+
 # Use unicorn as the app server
 # gem 'unicorn'
 
