@@ -33,9 +33,7 @@ ru:
     index:
       title_html: "Ваш прагматичный каталог"
       add_html: "В корзину"
-      page_visit_counter: 
-        one: "Вы посетили страницу 1 раз"
-        other: "Вы посетили страницу %{count} раз"
+      page_visit_counter: "Вы посетили страницу %{count} раз"
 
   carts:
     cart:

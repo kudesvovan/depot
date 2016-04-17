@@ -80,7 +80,7 @@ Depot::Application.configure do
 
   config.assets.debug = true
 
-  config.action_mailer.default_url_options = { host: 'depotkudesvoan.herokuapp.com' }
+  config.action_mailer.default_url_options = { host: 'depotkudesvovan.herokuapp.com' }
 
   config.action_mailer.delivery_method = :smtp
 
