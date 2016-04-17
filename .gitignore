@@ -15,7 +15,7 @@
 /log/*.log
 /tmp
 
-/config/locales/database.yml
+/config/locales/database.ymlgit statugit 
 /config/invironments/development.rb
 doc/
 *swp
